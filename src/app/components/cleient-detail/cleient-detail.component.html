@@ -1,0 +1,60 @@
+
+
+<div class="container-fluid pt-4">
+    <div class="row">
+        <div class="col-sm-12">
+            <div class="card">
+                <div class="card-header">
+                    <h5>Manage Client</h5>
+                </div>
+                <div class="card-body server-datatable selection-datatable">
+                    <div class="row">
+                        <div class="col-md-4 col-sm-4 p-3 d-flex">
+                          
+                            <div class="form-group">
+                              
+                                <select [(ngModel)]="saleMan" name="saleMan" class="custom-select"  id="exampleFormControlSelect9"  (change)='onOptionsSelected($event.target.value)' >
+                                    <option selected disabled >Please select a roles</option>
+                                    <option *ngFor="let role of saleManId" [value]="role.id">{{role.name}}</option>
+                                   
+                                </select>
+                            </div>
+                          </div>
+                       
+                           
+                          <div class="col-md-4 col-sm-4 p-4">
+                              <button class="btn btn-primary" (click)="getList()" >Search</button>
+                    
+                          </div>
+                       </div>
+                       <div class="table-responsive">
+                          <table class="table">
+                              <thead>
+                                  <tr>
+                                      <th scope="col">#</th>
+                                      <th scope="col">Name</th>
+                                      <th scope="col">Email</th>
+                                      <th scope="col">Designation</th>
+                                      <th scope="col">Phone</th>
+                                     
+                                  </tr>
+                              </thead>
+                              <tbody *ngFor="let row of view; index as i"   >
+                                  <tr >
+                                      <th scope="row">{{i + 1}}</th>
+                                      <td>{{row.firstName}}</td>
+                                      <td>{{row.email}}</td>
+                                      <td>{{row.designation}}</td>
+                                      <td>{{row.phone}}</td>
+                                     
+                                      <!-- <td [ngStyle]="{'color': user.isPresent == true  ? '#006400' : user.checkOutTime == '00:00:00' ? 'blue': 'red' }">{{user.isPresent == true ?'Present' :  user.checkOutTime == '00:00:00' ? 'Not Checked Out': 'Absent'}}</td> -->
+                                 
+                              </tbody>
+                          </table>
+                      </div>
+                </div>
+            </div>
+        </div>
+    </div>
+  </div>
+ 

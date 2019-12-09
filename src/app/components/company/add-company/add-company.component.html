@@ -1,0 +1,66 @@
+<div class="container-fluid">
+    <!-- sign up page start-->
+    <div class="authentication-main">
+      <div class="row">
+        <div class="col-sm-12 p-0">
+          <div class="auth-innerright">
+            <div class="authentication-box">
+           
+           
+              <div class="card mt-4 p-4">
+                <h4 class="text-center">Add Company</h4>
+              
+                <form class="theme-form" >
+                    <div class="form-group">
+<label class="col-form-label">Full Name</label><span style="color: red;">*</span> <input  class="form-control" autocomplete="off" [(ngModel)]="fullname"   name="title"   type="text">
+                      </div>
+                    <div class="row">
+                        <div class="col-xs-12 col-12 col-md-6 form-group">
+                            <label class="col-form-label">Email</label><span style="color: red;">*</span>
+                          <input type="text"
+                          [(ngModel)]="email"
+                          autocomplete="off"
+                                 class="form-control"
+                                 name="assignDate"
+                                 placeholder="xyz@gmail.com"
+                                 >
+                        </div>
+                        <div class="col-xs-12 col-12 col-md-6 form-group">
+                            <label class="col-form-label">Website</label><span style="color: red;">*</span>
+                            <input type="text"
+                            [(ngModel)]="website"
+                            autocomplete="off"
+                            name="dueDate"
+                                   class="form-control"
+                                   >
+                          </div>
+                      </div>
+                      <div class="form-group">
+ <label class="col-form-label">Phone No</label> <span style="color: red;">*</span> <input class="form-control" [(ngModel)]="phone" autocomplete="off"    name="title"   type="text" placeholder="03**********" >
+                      </div>
+                      <div class="form-group">
+  <label class="col-form-label">Type</label><span style="color: red;">*</span><input class="form-control" autocomplete="off" [(ngModel)]="type"    name="title"   type="text" >
+                      </div>
+                      
+                  <div class="form-group">
+  <label class="col-form-label">Address</label><span style="color: red;">*</span><textarea [rows]="3" class="form-control" [(ngModel)]="address" name="description" autocomplete="off" [cols]="50"  ></textarea>
+                    </div>
+                    <div class="form-group text-center">
+                      <button class="btn btn-primary" *ngIf="!isAsignTaskClicked" type="button" (click)="addCompany()"  [disabled]="(!fullname || !email || !address || !phone|| !type || !website)"  >Add</button>
+                      <div class="loader text-center" *ngIf="isAsignTaskClicked">
+                          <div class="line bg-primary"></div>
+                          <div class="line bg-primary"></div>
+                          <div class="line bg-primary"></div>
+                          <div class="line bg-primary"></div>
+                        </div>
+                    </div>
+                  
+                </form>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- sign up page ends-->
+  </div>

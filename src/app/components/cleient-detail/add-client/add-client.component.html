@@ -1,0 +1,63 @@
+<div class="container-fluid">
+  <!-- sign up page start-->
+  <div class="authentication-main">
+    <div class="row">
+      <div class="col-sm-12 p-0">
+        <div class="auth-innerright">
+          <div class="authentication-box">
+
+
+            <div class="card mt-4 p-4">
+              <h4 class="text-center">Add Client</h4>
+
+              <form class="theme-form" [formGroup]="AddClientForm" (ngSubmit)="addUser()">
+
+                <div class="row">
+                  <div class="col-xs-12 col-12 col-md-6 form-group">
+                      <label class="col-form-label">First Name</label><span style="color: red;">*</span> <input type="text" formControlName="firstName" autocomplete="off" 
+                      class="form-control" required>
+                  </div>
+                  <div class="col-xs-12 col-12 col-md-6 form-group">
+             <label class="col-form-label">Last Name</label><span style="color: red;">*</span> <input type="text" formControlName="lastName" autocomplete="off" 
+                      class="form-control"> <!--required placeholder="Last Name"-->
+                  </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="col-form-label">Company</label><span style="color: red;">*</span> 
+                  <select class="form-control" formControlName="companyId">
+                    <option *ngFor="let company of users" [value]="company.id">{{company.name}}</option>
+                  </select>
+
+                </div>
+                <div class="form-group">
+                    <label class="col-form-label">Email</label><span style="color: red;">*</span><input class="form-control" required autocomplete="off" formControlName="email" type="text">
+                </div>
+                <div class="form-group">
+  <label class="col-form-label">Phone No</label><span style="color: red;">*</span> <input class="form-control" required autocomplete="off" formControlName="phone" type="text" onKeyPress="if(this.value.length==11) return false;">
+                </div>
+                <div class="form-group">
+  <label class="col-form-label">Designation</label><span style="color: red;">*</span> <input class="form-control" autocomplete="off" required formControlName="designation" type="text"
+                    >
+                </div>
+
+                <div class="form-group text-center">
+                  <button class="btn btn-primary" *ngIf="!isAsignTaskClicked" type="submit"
+                    [disabled]="!AddClientForm.valid">Add</button>
+                  <div class="loader text-center" *ngIf="isAsignTaskClicked">
+                    <div class="line bg-primary"></div>
+                    <div class="line bg-primary"></div>
+                    <div class="line bg-primary"></div>
+                    <div class="line bg-primary"></div>
+                  </div>
+                </div>
+
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- sign up page ends-->
+</div>

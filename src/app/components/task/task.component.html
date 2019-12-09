@@ -1,0 +1,96 @@
+<div class="container-fluid">
+  <!-- sign up page start-->
+  <div class="authentication-main">
+    <div class="row">
+      <div class="col-sm-12 p-0">
+        <div class="auth-innerright">
+          <div class="authentication-box">
+         
+         
+            <div class="card mt-4 p-4">
+              <h4 class="text-center">Add Task</h4>
+            
+              <form class="theme-form" >
+                  <div class="form-group">
+ <label class="col-form-label">Title</label> <span style="color: red;">*</span>  <input class="form-control" autocomplete="off"  [(ngModel)]=title  name="title"   type="text" >
+                    </div>
+                  <div class="row">
+                      <div class="col-xs-12 col-12 col-md-6 form-group">
+                          <label class="col-form-label">Assign Date</label><span style="color: red;">*</span>
+                        <input type="text"
+                        [(ngModel)]="assignDate"
+                        autocomplete="off"
+                               class="form-control"
+                               name="assignDate"
+                               bsDatepicker>
+                      </div>
+                      <div class="col-xs-12 col-12 col-md-6 form-group">
+                          <label class="col-form-label">Assign To</label><span style="color: red;">*</span>
+                          <input type="text"
+                          [(ngModel)]="dueDate"
+                          autocomplete="off"
+                          name="dueDate"
+                                 class="form-control"
+                                 bsDatepicker>
+                        </div>
+                    </div>
+                    <div class="row">
+                       
+                        <div class="col-xs-12 col-12 col-md-6 box">
+                            <ng-multiselect-dropdown
+                            name="role"
+                            [placeholder]="'Select role'"
+                            [data]="dropdownList"
+                            [(ngModel)]="roles"
+                            [settings]="dropdownSettings"
+                            (onSelect)="onItemSelect($event)"
+                            (onSelectAll)="onSelectAll($event)"
+                          >
+                          </ng-multiselect-dropdown>
+                     
+                          </div>
+                          <div class="col-xs-12 col-12 col-md-6 form-group">
+                              <!-- <p-multiSelect [options]="users" [(ngModel)]="selectedUsers" optionLabel="firstName"></p-multiSelect> -->
+                              <ng-multiselect-dropdown
+                              name="multipleRole"
+                              [placeholder]="'Select role'"
+                              [data]="multiDropDownSetting"
+                              [(ngModel)]="multipleRole"
+                              [settings]="multiDownList"
+                              
+                            >
+                            </ng-multiselect-dropdown>
+                          </div>
+                      </div>
+                    
+                    
+
+            
+              
+              
+                <div class="form-group">
+                    <label class="col-form-label">Description</label><span style="color: red;">*</span><textarea [rows]="5" class="form-control" [(ngModel)]="description" name="description" autocomplete="off"  [cols]="50"  ></textarea>
+                  </div>
+               
+                
+                  <div class="form-group text-center">
+                    <button class="btn btn-primary" *ngIf="!isAsignTaskClicked" type="button" (click)="addTask()" [disabled]="(!dueDate || !assignDate || !description || multipleRole.length==0 || !title)"  >Add</button>
+                    <div class="loader text-center" *ngIf="isAsignTaskClicked">
+                        <div class="line bg-primary"></div>
+                        <div class="line bg-primary"></div>
+                        <div class="line bg-primary"></div>
+                        <div class="line bg-primary"></div>
+                      </div>
+                  </div>
+                
+             
+             
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- sign up page ends-->
+</div>

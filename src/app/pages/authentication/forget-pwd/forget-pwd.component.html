@@ -1,0 +1,38 @@
+<div class="container-fluid">
+  <div class="authentication-main">
+    <div class="row">
+      <div class="col-md-12 p-0">
+        <div class="auth-innerright">
+          <div class="reset-password-box">
+            <div class="text-center"><img src="assets/images/logo/logo.png" alt=""></div>
+            <div class="card mt-4 mb-0" *ngIf="!isSendClick">
+              <h4>Reset Your Password</h4>
+           
+             
+              
+                <div class="form-group">
+                  <label class="col-form-label">Enter Your Email</label>
+                  <input #recoverEmail class="form-control" [(ngModel)]="email" placeholder="Enter Your Email" type="email">
+                  <span style="font-size: 10px;"><a routerLink="/login" >Back To Login</a> </span>
+                  
+                </div>
+              
+                <div class="form-group form-row mb-2">
+                  <div class="col-md-2">
+                    <button class="btn btn-primary" type="button" (click)="reset()">Send</button>
+                  </div>
+                </div>
+            </div>
+              <div class="card mt-4 mb-0" *ngIf ="isSendClick">
+                <h3 class="text-center"> Kindly Check Your Email To Continue </h3>
+                <div class="text-center">
+                    <button class="btn btn-success" routerLink="/login" >Continue</button>
+                  </div>
+
+              </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

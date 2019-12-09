@@ -1,0 +1,74 @@
+<div class="container-fluid">
+  <!-- sign up page start-->
+  <div class="authentication-main">
+    <div class="row">
+      <div class="col-sm-12 p-0">
+        <div class="auth-innerright">
+          <div class="authentication-box">
+
+
+            <div class="card mt-4 p-4">
+              <h4 class="text-center">Add Meeting</h4>
+
+              <form class="theme-form">
+                <div class="form-group">
+                  <input class="form-control" [(ngModel)]=title name="title" type="text" placeholder="Title">
+                 </div>
+                <div class="row">
+                  <div class="col-xs-12 col-12 col-md-6 form-group">
+                    <input type="text" [(ngModel)]="date" placeholder="Date" class="form-control"
+                      name="assignDate" bsDatepicker>
+                  </div>
+                </div>
+                  <div class="row">
+                      <div class="col-xs-12 col-12 col-md-6 form-group">
+                          <timepicker [(ngModel)]="mytime" name="mytime"></timepicker>
+
+                      </div>
+                 
+                </div>
+                
+                <div class="row">
+
+                  <div class="col-xs-12 col-12 col-md-6 box">
+                    <ng-multiselect-dropdown name="role" [placeholder]="'Select Salesman'" [data]="salesManList"
+                      [(ngModel)]="salesId" [settings]="dropdownSettings"  name="salesId"
+                     >
+                    </ng-multiselect-dropdown>
+
+                  </div>
+                  <div class="col-xs-12 col-12 col-md-6 form-group">
+                    <!-- <p-multiSelect [options]="users" [(ngModel)]="selectedUsers" optionLabel="firstName"></p-multiSelect> -->
+                    <ng-multiselect-dropdown name="multipleRole" [placeholder]="'Select Client'"
+                      [data]="clientList" [(ngModel)]="clientId" name="clientId" [settings]="multiDownList">
+                    </ng-multiselect-dropdown>
+                  </div>
+                </div>
+
+
+
+
+
+
+                <div class="form-group">
+                  <textarea [rows]="5" class="form-control" [(ngModel)]="description" name="description"
+                    placeholder="Description" [cols]="50"></textarea>
+                </div>
+
+
+                <div class="form-group text-center">
+                  <button class="btn btn-primary" type="button" (click)="addMeeting()"
+                   >Add</button>
+                </div>
+
+              
+
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- sign up page ends-->
+</div>

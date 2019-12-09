@@ -1,0 +1,48 @@
+<div class="container-fluid p-0">
+  <!-- login page start-->
+  <div class="authentication-main">
+    <div class="row">
+      <div class="col-md-12">
+        <div class="auth-innerright">
+          <div class="authentication-box">
+            <div class="text-center"><img src="assets/images/logo/logo.png" alt=""></div>
+            <div class="card mt-4">
+              <div class="card-body">
+                <div class="text-center">
+                  <h4>LOGIN</h4>
+                  <h6>Enter your Email and Password </h6>
+                </div>
+                <form class="theme-form" [formGroup]="loginForm"  (ngSubmit)="login()">
+                  <div class="form-group">
+                    <label class="col-form-label pt-0">Email</label>
+                    <input #enterEmail class="form-control" type="email" formControlName="email" required="" autofocus>
+                  </div>
+                  <div class="form-group">
+                    <label class="col-form-label">Password</label>
+                    <input class="form-control" type="password" formControlName="password" required="">
+                    <span class="pull-right" style="font-size: 10px;"><a routerLink="/forgotpassword" >Forgot Your Password</a> </span>
+
+                  </div>
+                
+                  <div *ngIf="!isLoginClicked" class="form-group form-row mt-4 mb-0">
+                    <button class="btn btn-primary btn-block"  [disabled]="!loginForm.valid" type="submit">Login</button>
+                        
+                   
+                  </div>
+                  <div class="loader text-center" *ngIf="isLoginClicked">
+                      <div class="line bg-primary"></div>
+                      <div class="line bg-primary"></div>
+                      <div class="line bg-primary"></div>
+                      <div class="line bg-primary"></div>
+                    </div>
+                <span><a routerLink="/register" >Create An Account?</a> </span>
+                </form>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- login page end-->
+</div>

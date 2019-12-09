@@ -1,0 +1,74 @@
+<div class="container-fluid">
+  <!-- sign up page start-->
+  <div class="authentication-main">
+    <div class="row">
+      <div class="col-sm-12 p-0">
+        <div class="auth-innerright">
+          <div class="authentication-box">
+         
+            <div class="card mt-4 p-4">
+              <h4 class="text-center">Add Users</h4>
+              <form class="theme-form" [formGroup]="AddUserForm"  (ngSubmit)="addUser()">
+                <div class="form-row">
+                  <div class="col-md-6">
+                    <div class="form-group">
+                      <label class="col-form-label">First Name</label><span [ngStyle]="{'color':f.firstName.value == ''? 'red' : 'green'}">*</span>
+                      <input class="form-control"  formControlName="firstName"   type="text"  >
+                    
+                    </div>
+                  </div>
+                  <div class="col-md-6">
+                    <div class="form-group">
+                      <label class="col-form-label">Last Name</label><span style="color: red;">*</span>
+                      <input class="form-control"  formControlName="lastName"  type="text">
+                    </div>
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="col">
+                      <div class="form-group">
+                          <label class="col-form-label"  for="exampleFormControlSelect9">Role</label><span style="color: red;">*</span>
+                          <select class="form-control digits" formControlName="roleId"  id="exampleFormControlSelect9">
+                              <option selected disabled >Please select a role</option>
+                              <option *ngFor="let role of roles" [value]="role.id">{{role.name}}</option>
+                             
+                          </select>
+                      </div>
+                  </div>
+              </div>
+                <div class="form-group">
+                  <label class="col-form-label">Email</label><span style="color: red;">*</span>
+                  <input class="form-control"  formControlName="email"  type="email" placeholder="xyz@gmail.com">
+                </div>
+                <div class="form-group">
+                  <label class="col-form-label">Phone</label><span style="color: red;">*</span>
+                  <input class="form-control"  formControlName="phone"  type="text" placeholder="03**********" onKeyPress='if(this.value.length==11) return false'>
+                </div>
+                <div class="form-group">
+                  <label class="col-form-label">Address</label><span style="color: red;">*</span>
+                  <input class="form-control"  formControlName="address"  type="text" >
+                </div>
+             
+               
+                
+                  <div class="form-group text-center">
+                    <button class="btn btn-primary" type="submit" *ngIf="!isUserClicked"   [disabled]="!AddUserForm.valid">Add</button>
+                    <div class="loader text-center" *ngIf="isUserClicked">
+                        <div class="line bg-primary"></div>
+                        <div class="line bg-primary"></div>
+                        <div class="line bg-primary"></div>
+                        <div class="line bg-primary"></div>
+                      </div>
+                  </div>
+                
+             
+             
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- sign up page ends-->
+</div>

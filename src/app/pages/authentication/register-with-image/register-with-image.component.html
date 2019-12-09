@@ -1,0 +1,59 @@
+<div class="auth-bg">
+    <div class="authentication-box">
+      <div class="text-center"><img src="assets/images/logo/logo.png" alt=""></div>
+      <div class="card mt-4 p-4">
+        <h4 class="text-center">NEW USER</h4>
+        <h6 class="text-center">Enter your Detail For Signup</h6>
+        <form class="theme-form" 
+        [formGroup]="regForm" 
+        (ngSubmit)="reg()">
+          <div class="form-row">
+            <div class="col-md-6">
+              <div class="form-group">
+                <label class="col-form-label">First Name</label>
+                <input class="form-control" formControlName="firstname" type="text" placeholder="First Name" #first>
+              </div>
+            </div>
+            <div class="col-md-6">
+              <div class="form-group">
+                <label class="col-form-label">Last Name</label>
+                <input class="form-control" formControlName="lastname" type="text" placeholder="Last Name">
+              </div>
+            </div>
+          </div>
+          <div class="form-group">
+            <label class="col-form-label">Email</label>
+            <input class="form-control" type="email" formControlName="email" placeholder="Enter Email">
+          </div>
+         
+             
+          <div class="form-group">
+            <label class="col-form-label">Password</label>
+            <input class="form-control" formControlName="password" type="password" placeholder="**********">
+          </div>
+          <div class="form-group">
+              <label class="col-form-label">Address</label>
+              <input class="form-control" type="text" formControlName="address" placeholder="Address">
+            </div>
+            <div class="form-group">
+                <label class="col-form-label">Phone</label>
+                <input class="form-control" type="number" formControlName="phone"  placeholder="03**********" onKeyPress="if(this.value.length==11) return false;" >
+              </div>
+          <div class="form-row">
+            <div class="col-sm-4">
+              <button class="btn btn-primary" *ngIf="!isSignUpClicked" type="submit"  [disabled]="!regForm.valid">Sign Up</button>
+              <div class="loader text-center" *ngIf="isSignUpClicked">
+                  <div class="line bg-primary"></div>
+                  <div class="line bg-primary"></div>
+                  <div class="line bg-primary"></div>
+                  <div class="line bg-primary"></div>
+                </div>
+            </div>
+            <div class="col-sm-8">
+              <div class="text-left mt-2 m-l-20">Are you already user?  <a class="btn-link text-capitalize" routerLink="/login" >Login</a></div>
+            </div>
+          </div>
+    </form>
+      </div>
+    </div>
+  </div>
